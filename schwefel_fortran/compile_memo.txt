@@ -1,0 +1,1 @@
+gfortran schwefel.f95 -o schwefel

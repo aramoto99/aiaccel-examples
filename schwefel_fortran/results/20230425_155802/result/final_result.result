@@ -1,0 +1,12 @@
+- end_time: 04/25/2023 15:58:00
+  parameters:
+  - parameter_name: x1
+    type: FLOAT
+    value: -126.3885278110939
+  - parameter_name: x2
+    type: FLOAT
+    value: 421.64969596537503
+  result:
+  - -122.5036807614984
+  start_time: 04/25/2023 15:58:00
+  trial_id: 29
