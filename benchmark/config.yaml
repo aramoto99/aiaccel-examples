@@ -6,8 +6,8 @@ generic:
   batch_job_timeout: 600
 
 resource:
-  type: "abci"
-  # type: "local"
+  # type: "abci"
+  type: "local"
   # type: "python_local"
   num_node: 4
 
@@ -17,13 +17,13 @@ ABCI:
   job_execution_options: ""
 
 optimize:
-  # search_algorithm: "aiaccel.optimizer.NelderMeadOptimizer"
+  search_algorithm: "aiaccel.optimizer.NelderMeadOptimizer"
   # search_algorithm: "aiaccel.optimizer.RandomOptimizer"
-  search_algorithm: "aiaccel.optimizer.SobolOptimizer"
+  # search_algorithm: "aiaccel.optimizer.SobolOptimizer"
   # search_algorithm: "aiaccel.optimizer.GridOptimizer"
   # search_algorithm: "aiaccel.optimizer.TpeOptimizer"
   goal: "minimize"
-  trial_number: 100
+  trial_number: 30
   rand_seed: 42
   parameters:
     -
@@ -31,12 +31,13 @@ optimize:
       type: "uniform_float"
       lower: 0.0
       upper: 5.0
+      initial: [1.1, 1.2, 1.3]
     -
       name: "x2"
       type: "uniform_float"
       lower: 0.0
       upper: 5.0
-      initial: 1.0
+      initial: [2.1, 2.2, 2.3]
 
 job_setting:
   cancel_retry: 3
