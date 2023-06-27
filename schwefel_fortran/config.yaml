@@ -1,6 +1,7 @@
 generic:
   workspace: ./work
   job_command: ./schwefel
+  enable_command_argument: False
   batch_job_timeout: 600
 
 resource:

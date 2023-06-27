@@ -1,6 +1,7 @@
 generic:
   workspace: "./work"
   job_command: "python user.py"
+  enable_command_argument: True
   batch_job_timeout: 600
 
 resource:
