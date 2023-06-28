@@ -6,8 +6,8 @@ real(kind=8) :: x, y, result
 character(len=10) :: arg1, arg2
 
 ! プログラム引数から変数値を取得
-call get_command_argument(2, arg1)
-call get_command_argument(4, arg2)
+call get_command_argument(1, arg1)
+call get_command_argument(2, arg2)
 
 ! 文字列を実数に変換
 read(arg1, *) x

@@ -3,6 +3,7 @@ generic:
   job_command: ./schwefel
   enable_command_argument: False
   batch_job_timeout: 600
+  logging_level: ERROR
 
 resource:
   type: local
