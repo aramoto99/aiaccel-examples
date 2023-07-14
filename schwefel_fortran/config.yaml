@@ -1,18 +1,27 @@
 generic:
   workspace: ./work
-  job_command: ./schwefel
-  enable_command_argument: False
-  batch_job_timeout: 600
+  job_command: python user.py
+  python_file: ./user.py
+  function: main
+  enabled_variable_name_argumentation: True
+  main_loop_sleep_seconds: 0.01
   logging_level: ERROR
 
 resource:
+  # type: abci
   type: local
-  num_node: 4
+  # type: python_local
+  num_workers: 4
 
 ABCI:
-  group: "[group]"
+  group: your-group-name
   job_script_preamble: ./job_script_preamble.sh
   job_execution_options: ""
+
+job_setting:
+    job_timeout_seconds: 600
+    max_failure_retries: 0
+    trial_id_digits: 7
 
 optimize:
   search_algorithm: aiaccel.optimizer.NelderMeadOptimizer
