@@ -45,7 +45,7 @@ optimize:
       type: uniform_int
       lower: -500
       upper: 500
-      num_grid_points: 3
+      # num_grid_points: 3
     -
       name: x4
       type: categorical

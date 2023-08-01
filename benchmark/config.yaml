@@ -5,12 +5,12 @@ generic:
   function: main
   enabled_variable_name_argumentation: True
   main_loop_sleep_seconds: 0.01
-  logging_level: ERROR
+  logging_level: debug
 
 resource:
   # type: abci
-  type: local
-  # type: python_local
+  # type: local
+  type: python_local
   num_workers: 4
 
 ABCI:
@@ -24,9 +24,9 @@ job_setting:
     trial_id_digits: 7
 
 optimize:
-  search_algorithm: aiaccel.optimizer.NelderMeadOptimizer
-  #search_algorithm: aiaccel.optimizer.RandomOptimizer
-  # search_algorithm: aiaccel.optimizer.SobolOptimizer
+  #search_algorithm: aiaccel.optimizer.NelderMeadOptimizer
+  # search_algorithm: aiaccel.optimizer.RandomOptimizer
+  search_algorithm: aiaccel.optimizer.SobolOptimizer
   # search_algorithm: aiaccel.optimizer.GridOptimizer
   # search_algorithm: aiaccel.optimizer.TpeOptimizer
   goal: minimize

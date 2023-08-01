@@ -1,2 +1,4 @@
 results
 work
+*.pyc
+__pycache__

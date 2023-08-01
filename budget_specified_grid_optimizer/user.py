@@ -1,5 +1,5 @@
 import numpy as np
-from aiaccel.util.aiaccel import Run
+import aiaccel
 
 
 def main(p):
@@ -9,5 +9,5 @@ def main(p):
 
 
 if __name__ == "__main__":
-    run = Run()
+    run = aiaccel.Run()
     run.execute_and_report(main)
