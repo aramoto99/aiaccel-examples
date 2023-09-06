@@ -35,7 +35,7 @@ resource:
   num_workers: 4
 
 ABCI:
-  group: your-group-name
+  group: your-group-id
   job_script_preamble: ./job_script_preamble.sh
   job_execution_options: ""
 

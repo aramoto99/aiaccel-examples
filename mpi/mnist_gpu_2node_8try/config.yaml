@@ -1,0 +1,50 @@
+generic:
+  aiaccel_dir: ~/mpi_work/aiaccel
+  venv_dir: ~/mpi_work/mpienv
+  workspace: ./work
+  job_command: python user.py
+  python_file: ./user.py
+  function: main
+  batch_job_timeout: 600
+
+resource:
+  type: mpi
+  num_workers: 8
+  mpi_npernode: 4
+  mpi_bat_rt_num: 2
+  mpi_bat_h_rt: 2:00:00
+  mpi_bat_file: ./qsub.sh
+  mpi_hostfile: ./hostfile
+  mpi_gpu_mode: True
+  mpi_bat_make_file: True
+
+ABCI:
+  group: your-group-id
+  job_execution_options: ""
+  job_script_preamble: |
+    #!/bin/bash
+
+    #$ -l rt_F=1
+    #$ -l h_rt=2:00:00
+    #$ -j y
+    #$ -cwd
+
+    source /etc/profile.d/modules.sh
+    module load python/3.11
+    module load hpcx-mt/2.12
+
+optimize:
+  #search_algorithm: "aiaccel.optimizer.NelderMeadOptimizer"
+  search_algorithm: "aiaccel.optimizer.RandomOptimizer"
+  #search_algorithm: "aiaccel.optimizer.SobolOptimizer"
+  #search_algorithm: "aiaccel.optimizer.GridOptimizer"
+  #search_algorithm: "aiaccel.optimizer.TpeOptimizer"
+  goal: "minimize"
+  trial_number: 8
+  rand_seed: 42
+  parameters:
+    -
+      name: "x1"
+      type: "uniform_float"
+      lower: 0.1
+      upper: 1.9
