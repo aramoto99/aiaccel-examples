@@ -21,6 +21,8 @@ if __name__ == "__main__":
 - config.yaml
 ~~~ yaml
 generic:
+  # aiaccel_dir: ""
+  # venv_dir: ""
   workspace: ./work
   job_command: python user.py
   python_file: ./user.py
@@ -33,11 +35,29 @@ resource:
   # type: abci
   type: local
   num_workers: 4
+  # mpi_npernode: 4
+  # mpi_bat_rt_type: F
+  # mpi_bat_rt_num: 1
+  # mpi_bat_h_rt: 72:00:00
+  # mpi_bat_file: ./qsub.sh
+  # mpi_hostfile: ./hostfile
+  # mpi_gpu_mode: True
+  # mpi_bat_make_file: True
 
 ABCI:
   group: your-group-id
-  job_script_preamble: ./job_script_preamble.sh
   job_execution_options: ""
+  # job_script_preamble_path: ./job_script_preamble.sh
+  job_script_preamble: |
+    #!/bin/bash
+
+    #$-l rt_C.small=1
+    #$-j y
+    #$-cwd
+
+    source /etc/profile.d/modules.sh
+    module load gcc/12.2.0
+    module load python/3.11
 
 job_setting:
     job_timeout_seconds: 600
