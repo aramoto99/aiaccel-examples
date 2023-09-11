@@ -44,13 +44,13 @@ job_setting:
     trial_id_digits: 7
 
 optimize:
-  search_algorithm: aiaccel.optimizer.NelderMeadOptimizer
-  #search_algorithm: aiaccel.optimizer.RandomOptimizer
+  #search_algorithm: aiaccel.optimizer.NelderMeadOptimizer
+  search_algorithm: aiaccel.optimizer.RandomOptimizer
   # search_algorithm: aiaccel.optimizer.SobolOptimizer
   # search_algorithm: aiaccel.optimizer.GridOptimizer
   #search_algorithm: aiaccel.optimizer.TpeOptimizer
   goal: minimize
-  trial_number: 30
+  trial_number: 100
   rand_seed: 42
   parameters:
     -
