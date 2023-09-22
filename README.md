@@ -233,6 +233,7 @@ aiaccel-start --config config.yaml --resume 5
   | アルゴリズム | 指定方法 |
   | ---- | ---- |
   | ネルダーミード | `aiaccel.optimizer.NelderMeadOptimizer` |
+  | 粒子群最適化 | `aiaccel.optimizer.ParticleSwarmOptimizer` |
   | ランダム | `aiaccel.optimizer.RandomSearchOptimizer` |
   | ソボル列 | `aiaccel.optimizer.SobolOptimizer` |
   | グリッドサーチ | `aiaccel.optimizer.GridOptimizer` |
