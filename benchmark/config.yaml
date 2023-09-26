@@ -50,7 +50,7 @@ optimize:
   # search_algorithm: aiaccel.optimizer.GridOptimizer
   #search_algorithm: aiaccel.optimizer.TpeOptimizer
   goal: minimize
-  trial_number: 1
+  trial_number: 30
   rand_seed: 42
   parameters:
     -
@@ -58,10 +58,10 @@ optimize:
       type: uniform_float
       lower: 0.0
       upper: 5.0
-      initial: [1.1, 1.2, 1.3, 1.4]
+      # initial: [1.1, 1.2, 1.3, 1.4]
     -
       name: x2
       type: uniform_float
       lower: 0.0
       upper: 5.0
-      initial: [2.1, 2.2, 2.3, 2.4]
+      # initial: [2.1, 2.2, 2.3, 2.4]

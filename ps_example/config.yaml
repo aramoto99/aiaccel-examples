@@ -11,10 +11,10 @@ generic:
 
 resource:
   # type: abci
-  type: local
-  #type: python_local
+  # type: local
+  type: python_local
   # type: mpi
-  num_workers: 10
+  num_workers: 4
 
 ABCI:
   group: your-group-id
@@ -28,7 +28,7 @@ ABCI:
 
     source /etc/profile.d/modules.sh
     module load gcc/12.2.0
-    module load python/3.11
+    module load pytho:n/3.11
 
 job_setting:
     job_timeout_seconds: 600
@@ -36,16 +36,11 @@ job_setting:
     trial_id_digits: 7
 
 optimize:
-  # search_algorithm: aiaccel.optimizer.NelderMeadOptimizer
-  # search_algorithm: aiaccel.optimizer.RandomOptimizer
-  # search_algorithm: aiaccel.optimizer.SobolOptimizer
-  # search_algorithm: aiaccel.optimizer.GridOptimizer
-  # search_algorithm: aiaccel.optimizer.TpeOptimizer
   search_algorithm: aiaccel.optimizer.ParticleSwarmOptimizer
   goal: minimize
   trial_number: 100
-  rand_seed: 42
-  num_particle: 20
+  #rand_seed: 42
+  num_particle: 10
   inertia_weight: 0.9
   cognitive_weight: 0.1
   social_weight: 0.1
