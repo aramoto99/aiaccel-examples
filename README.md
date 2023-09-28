@@ -1,15 +1,31 @@
-### [new-aiaccel](https://github.com/aramoto99/new-aiaccel) のための example
+# [new-aiaccel](https://github.com/aramoto99/new-aiaccel) のための example
 
 
-## new-aiaccel インストール
+# new-aiaccel インストール
 ~~~ bash
 git clone git@github.com:aramoto99/new-aiaccel.git
 cd new-aiaccel
 pip install -e .
 ~~~
 
-## 使い方
-### HPC (ABCI)
+# example リポジトリのクローン
+~~~ bash
+git clone git@github.com:aramoto99/aiaccel-examples.git
+~~~
+
+- ## example の構成
+  - benchmark - 標準的な2変数関数の最適化の例
+  - mpi - MPI を使用する場合の例
+  - ps - 粒子群最適化の例
+  - resnet_cifar10 - ResNet のハイパーパラメータ最適化の例
+  - schwefel - Schwefel 関数の最適化の例
+  - schwefel_fortran - Schwefel 関数の最適化の例 (Fortran)
+  - sphere - Sphere 関数の最適化の例
+  - styblinski-tang - Styblinski-Tang 関数の最適化の例
+
+# 使い方
+
+## HPC (ABCI)
 - user.py
 ~~~ python
 import aiaccel
@@ -88,7 +104,7 @@ aiaccel-start --config config.yaml --clean
 ~~~
 
 
-### local
+## local
 - resource の type を local にする
 
 ~~~ yaml
@@ -104,7 +120,7 @@ aiaccel-start --config config.yaml --clean
 ~~~
 
 
-### local (簡易モード)
+## local (簡易モード)
 
 並列実行不可
 
@@ -131,7 +147,7 @@ python user.py
 ~~~
 
 
-### MPI
+## MPI
 - resource の type を mpi にする
 - resource の mpi に関する項目を設定する
 
@@ -155,15 +171,15 @@ resource:
 aiaccel-start --config config.yaml --clean
 ~~~
 
-## オプショナル
+# オプショナル
 
-### clean
+## clean
 `--clean` オプションを指定すると、既にワークスペースのディレクトリが存在する場合、ワークスペースを削除する。
 ~~~ bash
 aiaccel-start --config config.yaml --clean
 ~~~
 
-### resume
+## resume
 `--resume` オプションを指定すると、前回の実行結果を読み込み、続きから実行する。 `--resume` の後には、任意のトライアルIDを指定する。
 ~~~ bash
 aiaccel-start --config config.yaml --resume 5
@@ -172,8 +188,8 @@ aiaccel-start --config config.yaml --resume 5
 
 <hr>
 
-## 設定項目の解説
-### generic
+# 設定項目の解説
+## generic
 - aiaccel_dir: aiaccel のインストール先ディレクトリ (オプショナル)。aiaccel をインストールせずに実行する場合、この項目に aiaccel のディレクトリを指定する。実行するときは、`PYTHONPATH` に `aiaccel_dir` を追加する。
 - venv_dir: 仮想環境(venv)のインストール先ディレクトリ (オプショナル)
 - workspace: ワークスペースのディレクトリ。`aiaccel-start` 実行時に、このディレクトリが作成される。最適化の結果は、このディレクトリ内に保存される。
@@ -194,7 +210,7 @@ aiaccel-start --config config.yaml --resume 5
   | critical | クリティカル |
 
 
-### resource
+## resource
 - type: リソースの種類。`abci`、 `local`、`python_local`, `mpi` を指定する。
   ----
   | リソース | 指定方法 | 備考 |
@@ -214,19 +230,19 @@ aiaccel-start --config config.yaml --resume 5
 - mpi_gpu_mode: GPUモードの設定。`type` が `mpi` かつ、ABCIで実行する場合のみ有効。
 - mpi_bat_make_file: ジョブスクリプトを生成するかどうか。`type` が `mpi` かつ、ABCIで実行する場合のみ有効。
 
-### ABCI
+## ABCI
 本項目は、`resource` が `abci` の場合のみ有効。
 - group: グループID
 - job_execution_options: ジョブ実行オプション。
 - job_script_preamble_path: ジョブスクリプトの先頭に追加するコマンドを記述したファイルのパス。
 - job_script_preamble: ジョブスクリプトの先頭に追加するコマンド。`job_script_preamble_path` と `job_script_preamble` の両方が指定されている場合、`job_script_preamble_path` が優先される。
 
-### job_setting
+## job_setting
 - job_timeout_seconds: ジョブのタイムアウト時間
 - max_failure_retries: ジョブの最大失敗リトライ回数
 - trial_id_digits: トライアルIDの桁数
 
-### optimize
+## optimize
 - search_algorithm: 探索アルゴリズム
   
   ----
@@ -243,6 +259,10 @@ aiaccel-start --config config.yaml --resume 5
 - goal: 目的関数の目標値。`minimize` か `maximize` を指定する。
 - trial_number: トライアル数
 - rand_seed: 乱数シード。項目がない場合は `numpy` のデフォルト設定が使用される。
+- num_particles: 粒子群最適化の粒子数。`search_algorithm` が `ParticleSwarmOptimizer` の場合のみ有効。
+- inertia_weight: 粒子群最適化の慣性重み。`search_algorithm` が `ParticleSwarmOptimizer` の場合のみ有効。
+- cognitive_weight: 粒子群最適化の認知重み。`search_algorithm` が `ParticleSwarmOptimizer` の場合のみ有効。
+- social_weight: 粒子群最適化の社会的重み。`search_algorithm` が `ParticleSwarmOptimizer` の場合のみ有効。
 - parameters:
   - name: パラメータ名
   - type:
