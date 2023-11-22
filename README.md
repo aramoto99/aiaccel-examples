@@ -22,6 +22,7 @@ git clone git@github.com:aramoto99/aiaccel-examples.git
   - schwefel_fortran - Schwefel 関数の最適化の例 (Fortran)
   - sphere - Sphere 関数の最適化の例
   - styblinski-tang - Styblinski-Tang 関数の最適化の例
+  - vlmop2 - VLMOP2 多目的最適化の例
 
 # 使い方
 
