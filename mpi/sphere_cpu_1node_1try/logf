@@ -1,0 +1,14 @@
+MPI is enabled.
+Cleaning workspace
+Workspace directory /home/member/aiaccel-examples/mpi/sphere_cpu_1node_1try/work is cleaned.
+config: /home/member/aiaccel-examples/mpi/sphere_cpu_1node_1try/config.yaml
+0,0,DESKTOP-4RQ5P28,"prepare: rank=0 tag=0",20231017-133000-839
+40.07614290457259
+/usr/lib/python3.10/runpy.py:126: RuntimeWarning: 'aiaccel.cli.set_result' found in sys.modules after import of package 'aiaccel.cli', but prior to execution of 'aiaccel.cli.set_result'; this may result in unpredictable behaviour
+  warn(RuntimeWarning(msg))
+moving...
+Best trial [0] : 0
+	value : 40.07614290457259
+result file : results/20231017_133003/results.csv
+Total time [s] : 3
+Done.

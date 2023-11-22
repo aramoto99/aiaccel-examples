@@ -11,8 +11,8 @@ generic:
 
 resource:
   # type: abci
-  type: local
-  #type: python_local
+  #type: local
+  type: python_local
   # type: mpi
   num_workers: 4
   # mpi_npernode: 4
@@ -45,10 +45,10 @@ job_setting:
 
 optimize:
   search_algorithm: aiaccel.optimizer.NelderMeadOptimizer
-  #search_algorithm: aiaccel.optimizer.RandomOptimizer
+  # search_algorithm: aiaccel.optimizer.RandomOptimizer
   # search_algorithm: aiaccel.optimizer.SobolOptimizer
   # search_algorithm: aiaccel.optimizer.GridOptimizer
-  #search_algorithm: aiaccel.optimizer.TpeOptimizer
+  # search_algorithm: aiaccel.optimizer.TpeOptimizer
   goal: minimize
   trial_number: 30
   rand_seed: 42

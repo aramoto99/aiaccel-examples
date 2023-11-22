@@ -1,7 +1,7 @@
 generic:
   workspace: ./work
-  job_command: python vlmop2.py
-  enabled_variable_name_argumentation: True
+  job_command: ./a.out
+  enabled_variable_name_argumentation: False
 
 resource:
   type: local

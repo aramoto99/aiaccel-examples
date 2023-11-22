@@ -11,8 +11,8 @@ generic:
 
 resource:
   # type: abci
-  # type: local
-  type: python_local
+  type: local
+  #type: python_local
   # type: mpi
   num_workers: 4
 

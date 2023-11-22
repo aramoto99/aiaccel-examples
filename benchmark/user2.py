@@ -9,7 +9,6 @@ def main(p):
 if __name__ == "__main__":
     study = aiaccel.create_study("./config.yaml")
     study.optimize(main)
-    study.evaluate()
     study.show_result()
 
     # study = aiaccel.create_study("./config.yaml")

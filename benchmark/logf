@@ -1,0 +1,12 @@
+--------------------------------------------------------------------------
+Open RTE was unable to open the hostfile:
+    hostfile
+Check to make sure the path and filename are correct.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+An internal error has occurred in ORTE:
+
+[[41807,0],0] FORCE-TERMINATE AT (null):1 - error ../../../../../orte/mca/ras/base/ras_base_allocate.c(352)
+
+This is something that should be reported to the developers.
+--------------------------------------------------------------------------
