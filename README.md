@@ -45,14 +45,12 @@ if __name__ == "__main__":
 - config.yaml
 ~~~ yaml
 generic:
-  # aiaccel_dir: ""
-  # venv_dir: ""
   workspace: ./work
   job_command: python user.py
   python_file: ./user.py
   function: main
   enabled_variable_name_argumentation: True
-  main_loop_sleep_seconds: 0.01
+  sleep_time: 0.01
   logging_level: info
 
 resource:
@@ -76,8 +74,7 @@ ABCI:
 
 job_setting:
     job_timeout_seconds: 600
-    max_failure_retries: 0
-    trial_id_digits: 7
+    name_length: 7
 
 optimize:
   search_algorithm: aiaccel.optimizer.NelderMeadOptimizer
@@ -191,14 +188,12 @@ aiaccel-start --config config.yaml --resume 5
 
 # 設定項目の解説
 ## generic
-- aiaccel_dir: aiaccel のインストール先ディレクトリ (オプショナル)。aiaccel をインストールせずに実行する場合、この項目に aiaccel のディレクトリを指定する。実行するときは、`PYTHONPATH` に `aiaccel_dir` を追加する。
-- venv_dir: 仮想環境(venv)のインストール先ディレクトリ (オプショナル)
 - workspace: ワークスペースのディレクトリ。`aiaccel-start` 実行時に、このディレクトリが作成される。最適化の結果は、このディレクトリ内に保存される。
 - job_command: ジョブの実行コマンド。`python user.py` のように指定する。
 - python_file: 実行する python ファイル。`./user.py` のように指定する。この項目は、`resource` が `python_local` の場合のみ有効。
 - function: python_file で指定したファイル内の、最適化対象の関数。この項目は、`resource` が `python_local` の場合のみ有効。
 - enabled_variable_name_argumentation: `job_command` に変数名を指定するかどうか。`True` なら `--x1=1.0 --x2=2.0` のように指定する。`False` なら `1.0 2.0` のように指定する。
-- main_loop_sleep_seconds: メインループのスリープ時間
+- sleep_time: メインループのスリープ時間
 - logging_level:
   
   ----
@@ -239,9 +234,7 @@ aiaccel-start --config config.yaml --resume 5
 - job_script_preamble: ジョブスクリプトの先頭に追加するコマンド。`job_script_preamble_path` と `job_script_preamble` の両方が指定されている場合、`job_script_preamble_path` が優先される。
 
 ## job_setting
-- job_timeout_seconds: ジョブのタイムアウト時間
-- max_failure_retries: ジョブの最大失敗リトライ回数
-- trial_id_digits: トライアルIDの桁数
+- name_length: トライアルIDの桁数
 
 ## optimize
 - search_algorithm: 探索アルゴリズム

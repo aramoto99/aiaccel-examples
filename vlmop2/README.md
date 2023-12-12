@@ -53,9 +53,7 @@ resource:
 #     module load python/3.11
 
 job_setting:
-    job_timeout_seconds: 600
-    max_failure_retries: 0
-    trial_id_digits: 7
+    name_length: 7
 
 optimize:
   search_algorithm: aiaccel.optimizer.MOTpeOptimizer
@@ -212,9 +210,7 @@ resource:
 #     module load python/3.11
 
 job_setting:
-    job_timeout_seconds: 600
-    max_failure_retries: 0
-    trial_id_digits: 7
+    name_length: 7
 
 optimize:
   search_algorithm: aiaccel.optimizer.MOTpeOptimizer

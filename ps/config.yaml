@@ -1,13 +1,11 @@
 generic:
-  aiaccel_dir: ""
-  venv_dir: ""
   workspace: ./work
   job_command: python user.py
   python_file: ./user.py
   function: main
   enabled_variable_name_argumentation: True
-  main_loop_sleep_seconds: 0.01
-  logging_level: info
+  sleep_time: 0.01
+  logging_level: INFO
 
 resource:
   # type: abci
@@ -31,9 +29,7 @@ ABCI:
     module load pytho:n/3.11
 
 job_setting:
-    job_timeout_seconds: 600
-    max_failure_retries: 0
-    trial_id_digits: 7
+    name_length: 7
 
 optimize:
   search_algorithm: aiaccel.optimizer.ParticleSwarmOptimizer

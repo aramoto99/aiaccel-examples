@@ -1,12 +1,11 @@
 generic:
-  # aiaccel_dir: ""
-  venv_dir: ~/optenv/bin/activate
   workspace: ./work
   job_command: python user.py
   python_file: ./user.py
   function: main
   enabled_variable_name_argumentation: True
-  main_loop_sleep_seconds: 0.01
+  batch_job_timeout: 7200
+  sleep_time: 0.01
   logging_level: ERROR
 
 resource:
@@ -41,13 +40,11 @@ ABCI:
     module load nccl/2.8/2.8.4-1
 
 job_setting:
-    job_timeout_seconds: 7200
-    max_failure_retries: 0
-    trial_id_digits: 7
+    name_length: 7
 
 optimize:
   search_algorithm: aiaccel.optimizer.NelderMeadOptimizer
-  #search_algorithm: aiaccel.optimizer.RandomOptimizer
+  # search_algorithm: aiaccel.optimizer.RandomOptimizer
   # search_algorithm: aiaccel.optimizer.SobolOptimizer
   # search_algorithm: aiaccel.optimizer.GridOptimizer
   # search_algorithm: aiaccel.optimizer.TpeOptimizer
