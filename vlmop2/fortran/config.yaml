@@ -2,7 +2,7 @@ generic:
   workspace: ./work
   job_command: ./a.out
   enabled_variable_name_argumentation: False
-  batch_job_timeout: 600
+  batch_job_timeout: 60
   sleep_time: 0.01
   logging_level: ERROR
 
