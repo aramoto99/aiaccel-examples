@@ -9,6 +9,5 @@ def main(p):
 
 
 if __name__ == "__main__":
-    #run = aiaccel.Run()
     run = Run()
     run.execute_and_report(main)
